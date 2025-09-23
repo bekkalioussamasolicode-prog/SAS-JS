@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+</head>
+<body>
+  <script>
+    // Ask the user for a number
+let x = Number(prompt("Enter a number: "));
+
+// Variable to collect all divisors in a string
+let divisors = "";
+
+// Loop from 1 to x
+for (let i = 1; i <= x; i++) {
+  if (x % i === 0) {
+    divisors += i + " "; // add the divisor to the string
+  }
+}
+
+// Show the result in an alert box
+alert("The divisors of x = " + x + " are:\n" + divisors);
+
+  </script>
+  
+</body>
+</html>

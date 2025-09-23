@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+
+</head>
+<body>
+  <script>
+
+    // Initialize variables
+    let somme = 0;        // will store the total sum of all valid grades
+    let compteur = 0;     // will count how many valid grades were entered
+    let note;             // variable to store the grade entered by the user
+
+    do {
+      // Ask the user for a grade (prompt returns a string → converted to number with Number())
+      note = Number(prompt("Enter a grade (or -1 to stop): "));
+
+      if (note === -1) {
+        // If the user enters -1 → stop the input loop
+        break;
+      } else if (note >= 0 && note <= 20) {
+        // If the grade is between 0 and 20 → valid grade
+        somme += note;    // add the grade to the sum
+        compteur++;       // increase the count of valid grades
+      } else {
+        // If the grade is not in [0,20] and not -1 → invalid grade
+        alert(note + " : Invalid grade");
+      }
+
+    } while (true); // infinite loop that only stops when "break" is used
+
+    // After the loop ends:
+    if (compteur > 0) {
+      // If at least one valid grade was entered
+      let moyenne = somme / compteur; // calculate the average
+      alert("Number of grades = " + compteur + ", average = " + moyenne);
+    } else {
+      // If no valid grades were entered
+      alert("No valid grade entered.");
+    }
+
+  </script>
+  
+</body>
+</html>
