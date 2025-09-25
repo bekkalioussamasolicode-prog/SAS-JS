@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <title>Prototype</title>
+</head>
+<body>
+  <script>
+    // Define an object containing the skill codes and their descriptions
+const competences = {
+    C1: "Maquetter une application",
+    C2: "Réaliser une interface utilisateur web statique et adaptable",
+    C3: "Développer une interface utilisateur web dynamique",
+    C4: "Réaliser une interface utilisateur avec une solution de gestion de contenu ou e-commerce",
+    C5: "Créer une base de données - niveau 1",
+    C6: "Développer les composants d'accès aux données - niveau 1s",
+    C7: "Développer la partie back-end d'une application web ou web mobile - niveau 1",
+    C8: "Framwork FrontEnd (React, vueJs...)",
+    T1: "Comprendre la démarche pédagogique à Solicode",
+    T2: "Collaboration & posture professionnelle",
+    T3: "Gérer un projet avec Git & GitHub"
+};
+
+// Infinite loop to allow the user to enter multiple codes
+while (true) {
+    // Ask the user to enter a skill code
+    let code = prompt("Veuillez saisir un code de compétence (C1 a C8) (T1 a T3) ou 'exit' pour quitter :");
+
+    // Check if the user wants to quit
+    if (code.toLowerCase() === "exit") {
+        alert("Programme terminé !");
+        break; // Exit the loop
+    }
+
+    // Check if the code exists in our object
+    if (competences[code]) {
+        alert("Description de " + competences[code]);
+    } else {
+        alert("Cette compétence n'existe pas");
+    }
+}
+
+  </script>
+  
+</body>
+</html>
