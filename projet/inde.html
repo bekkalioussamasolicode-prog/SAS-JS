@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Quiz Game</title>
+</head>
+<body>
+<script>
+  const competences = [
+    { code: "C1", desc: "Maquetter une application" },
+    { code: "C2", desc: "Réaliser une interface utilisateur web statique et adaptable" },
+    { code: "C3", desc: "Développer une interface utilisateur web dynamique" },
+    { code: "C4", desc: "Réaliser une interface utilisateur avec une solution de gestion de contenu ou e-commerce" },
+    { code: "C5", desc: "Créer une base de données - niveau 1" },
+    { code: "C6", desc: "Développer les composants d’accès aux données - niveau 1" },
+    { code: "C7", desc: "Développer la partie back-end d’une application web ou web mobile - niveau 1" },
+    { code: "C8", desc: "Framework FrontEnd (React, VueJs...)" },
+    { code: "T1", desc: "Comprendre la démarche pédagogique à Solicode" },
+    { code: "T2", desc: "Collaboration & posture professionnelle" },
+    { code: "T3", desc: "Gérer un projet avec Git & GitHub" }
+  ];
+
+  let score = 0;
+  let result = 10;
+  let i = 1;
+
+  while (i <= result) {
+    let index = Math.floor(Math.random() * competences.length);
+    let question = competences[index];
+
+    let answer = prompt(
+      "Question " + i + ":\nWhat is the code for this skill?\n\n" + question.desc
+    );
+
+    if (!answer) {
+      alert("BYE BYE");
+      break;
+    }
+
+    if (answer.toUpperCase() === question.code) {
+      alert(" Correct! ");
+      score++;
+    } else {
+      alert(" Wrong! The correct answer was: " + question.code);
+    }
+
+    i++;
+  }
+
+  alert(" GAME OVER!");
+  alert("Your Score: " + score + " / " + result);
+</script>
+</body>
+</html>
