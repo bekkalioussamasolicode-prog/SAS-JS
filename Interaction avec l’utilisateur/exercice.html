@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>exercice</title>
+    <style>
+      p {
+        color: red;
+      }
+      li:nth-child(even) {
+        color: aquamarine;
+      }
+    </style>
+  </head>
+  <body>
+    <label for="hb">What Are Your Hobbies : </label>
+    <input type="text" id="txt" name="hb" placeholder="Ex: Gaming" />
+    <button id="btn">Add</button>
+    <ul></ul>
+    <script>
+      let inpt = document.getElementById("txt");
+      let msg = document.createElement("p");
+
+      let list = document.querySelector("ul");
+      list.before(msg);
+
+      let btn = document.getElementById("btn");
+
+      btn.addEventListener("click", function () {
+        if (inpt.value.trim()) {
+          let li = document.createElement("li");
+          li.textContent = inpt.value;
+          list.appendChild(li);
+          inpt.value = "";
+          msg.innerText = "";
+        } else {
+          msg.innerText = "Try Writing Somthing!!!";
+        }
+      });
+    </script>
+  </body>
+</html>
