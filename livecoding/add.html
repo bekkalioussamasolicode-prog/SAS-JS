@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Add Book</title>
+  </head>
+  <body>
+    <h2>Add a New Book</h2>
+    <form id="addBookForm">
+      <label>Code: <input type="number" id="code" required /></label
+      ><br /><br />
+      <label>Title: <input type="text" id="titre" required /></label
+      ><br /><br />
+      <label>Author: <input type="text" id="auteur" required /></label
+      ><br /><br />
+      <label>Year: <input type="number" id="annee" required /></label
+      ><br /><br />
+      <label>Price: <input type="number" id="prix" required /></label
+      ><br /><br />
+      <label>
+        Available:
+        <select id="disponible">
+          <option value="true">Yes</option>
+          <option value="false">No</option>
+        </select>
+      </label>
+      <br /><br />
+      <button type="submit">Add Book</button>
+    </form>
+
+    <p><a href="cat.html">Back to Library</a></p>
+
+    <script>
+      const form = document.getElementById("addBookForm");
+
+      form.addEventListener("submit", function (e) {
+        e.preventDefault();
+
+        // jib lktoba wla dir array jdid
+        let bibliotheque =
+          JSON.parse(localStorage.getItem("bibliotheque")) || [];
+
+        // dir ktab
+        const newBook = {
+          code: parseInt(document.getElementById("code").value),
+          titre: document.getElementById("titre").value,
+          auteur: document.getElementById("auteur").value,
+          annee: parseInt(document.getElementById("annee").value),
+          prix: parseFloat(document.getElementById("prix").value),
+          disponible: document.getElementById("disponible").value === "true",
+        };
+
+        // zid array f storage
+        bibliotheque.push(newBook);
+        localStorage.setItem("bibliotheque", JSON.stringify(bibliotheque));
+
+        alert("Book added successfully!");
+        form.reset();
+      });
+    </script>
+  </body>
+</html>

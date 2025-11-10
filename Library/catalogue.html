@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Library App</title>
+    <style>
+      #books {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 15px;
+      }
+      .card {
+        border: 1px solid #ccc;
+        padding: 10px;
+        border-radius: 8px;
+        width: 200px;
+      }
+      button {
+        margin-top: 8px;
+        cursor: pointer;
+        display: block;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="books"></div>
+    <a href="add.html">add book</a>
+    <script>
+      let bibliotheque = JSON.parse(localStorage.getItem("bibliotheque")) || [
+        {
+          code: 12,
+          titre: "Clean Code",
+          auteur: "Robert C. Martin",
+          annee: 2008,
+          disponible: true,
+          prix: 150,
+        },
+        {
+          code: 45,
+          titre: "Eloquent JavaScript",
+          auteur: "Marijn Haverbeke",
+          annee: 2018,
+          disponible: true,
+          prix: 200,
+        },
+        {
+          code: 67,
+          titre: "You Don’t Know JS",
+          auteur: "Kyle Simpson",
+          annee: 2015,
+          disponible: false,
+          prix: 180,
+        },
+      ];
+
+      localStorage.setItem("bibliotheque", JSON.stringify(bibliotheque));
+
+      const booksContainer = document.getElementById("books");
+
+      function createBookCard(book, index) {
+        const card = document.createElement("div");
+        card.classList.add("card");
+
+        const title = document.createElement("h3");
+        title.textContent = book.titre;
+
+        const auteur = document.createElement("p");
+        auteur.textContent = book.auteur;
+
+        const disponible = document.createElement("span");
+        disponible.textContent = book.disponible
+          ? "disponible "
+          : "non disponible ";
+
+        const reserveBtn = document.createElement("button");
+        reserveBtn.innerText = book.disponible ? "Reserver" : "Réservé";
+
+        reserveBtn.addEventListener("click", function () {
+          book.disponible = !book.disponible;
+          disponible.textContent = book.disponible
+            ? "disponible "
+            : "non disponible ";
+          reserveBtn.innerText = book.disponible ? "Reserver" : "Réservé";
+          localStorage.setItem("bibliotheque", JSON.stringify(bibliotheque));
+        });
+
+        const deleteBtn = document.createElement("button");
+        deleteBtn.innerText = "Supprimer";
+
+        deleteBtn.addEventListener("click", function () {
+          if (confirm(`Delete "${book.titre}" ?`)) {
+            bibliotheque.splice(index, 1);
+
+            localStorage.setItem("bibliotheque", JSON.stringify(bibliotheque));
+
+            card.remove();
+          }
+        });
+
+        card.append(title, auteur, disponible, reserveBtn, deleteBtn);
+        booksContainer.appendChild(card);
+      }
+
+      bibliotheque.forEach((book, index) => createBookCard(book, index));
+    </script>
+  </body>
+</html>
