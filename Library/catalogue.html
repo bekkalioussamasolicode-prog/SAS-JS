@@ -25,7 +25,7 @@
   </head>
   <body>
     <div id="books"></div>
-    <a href="add.html">add book</a>
+    <a href="ajouter-livre.html">add book</a>
     <script>
       let bibliotheque = JSON.parse(localStorage.getItem("bibliotheque")) || [
         {
@@ -82,6 +82,7 @@
             ? "disponible "
             : "non disponible ";
           reserveBtn.innerText = book.disponible ? "Reserver" : "Réservé";
+          // bdel f localstorage
           localStorage.setItem("bibliotheque", JSON.stringify(bibliotheque));
         });
 
