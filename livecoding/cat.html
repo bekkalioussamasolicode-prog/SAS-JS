@@ -27,6 +27,7 @@
     <div id="books"></div>
     <a href="add.html">add book</a>
     <script>
+      // jib ktoba mn local wla dir whd jdid
       let bibliotheque = JSON.parse(localStorage.getItem("bibliotheque")) || [
         {
           code: 12,
@@ -53,11 +54,11 @@
           prix: 180,
         },
       ];
-
+      // save f local
       localStorage.setItem("bibliotheque", JSON.stringify(bibliotheque));
 
       const booksContainer = document.getElementById("books");
-
+      // create card
       function createBookCard(book, index) {
         const card = document.createElement("div");
         card.classList.add("card");
@@ -82,6 +83,7 @@
             ? "disponible "
             : "non disponible ";
           reserveBtn.innerText = book.disponible ? "Reserver" : "Réservé";
+          // bdel f local storage
           localStorage.setItem("bibliotheque", JSON.stringify(bibliotheque));
         });
 
@@ -91,7 +93,7 @@
         deleteBtn.addEventListener("click", function () {
           if (confirm(`Delete "${book.titre}" ?`)) {
             bibliotheque.splice(index, 1);
-
+            // bdel f local storage
             localStorage.setItem("bibliotheque", JSON.stringify(bibliotheque));
 
             card.remove();
