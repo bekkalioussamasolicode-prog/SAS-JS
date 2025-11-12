@@ -37,11 +37,9 @@
       form.addEventListener("submit", function (e) {
         e.preventDefault();
 
-        // jib lktoba wla dir array jdid
         let bibliotheque =
           JSON.parse(localStorage.getItem("bibliotheque")) || [];
 
-        // dir ktab
         const newBook = {
           code: parseInt(document.getElementById("code").value),
           titre: document.getElementById("titre").value,
@@ -51,12 +49,13 @@
           disponible: document.getElementById("disponible").value === "true",
         };
 
-        // zid array f storage
         bibliotheque.push(newBook);
         localStorage.setItem("bibliotheque", JSON.stringify(bibliotheque));
 
         alert("Book added successfully!");
-        form.reset();
+
+        // KYRJ3EK NICHAN N PAGE D CATALOGUE
+        window.location.href = "catalogue.html";
       });
     </script>
   </body>
