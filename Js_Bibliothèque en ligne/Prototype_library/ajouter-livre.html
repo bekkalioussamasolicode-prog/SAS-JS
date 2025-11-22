@@ -4,20 +4,85 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Add Book</title>
+    <style>
+      h2 {
+        text-align: center;
+        margin-bottom: 20px;
+      }
+
+      input,
+      select {
+        padding: 6px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        width: 200px;
+        box-sizing: border-box;
+        margin-top: 4px;
+        margin-bottom: 10px;
+        transition: background-color 0.3s ease;
+        box-sizing: border-box;
+      }
+      button {
+        padding: 10px 15px;
+        background-color: #28a745;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 16px;
+        width: 100%;
+        box-sizing: border-box;
+        transition: background-color 0.3s ease;
+      }
+      button:hover {
+        background-color: #218838;
+        box-sizing: border-box;
+      }
+      label {
+        font-weight: bold;
+        display: block;
+        margin-bottom: 5px;
+        box-sizing: border-box;
+        transition: background-color 0.3s ease;
+      }
+      form {
+        max-width: 400px;
+        margin: auto;
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.1);
+        background-color: #f9f9f9;
+        box-sizing: border-box;
+        transition: box-shadow 0.3s ease;
+      }
+      a {
+        text-decoration: none;
+        color: #007bff;
+        font-weight: bold;
+        padding: 8px;
+        display: inline-block;
+        border-radius: 4px;
+        background-color: #e9ecef;
+        box-sizing: border-box;
+        transition: background-color 0.3s ease;
+      }
+      a:hover {
+        background-color: #ced4da;
+        box-sizing: border-box;
+        transition: background-color 0.3s ease;
+      }
+    </style>
   </head>
   <body>
     <h2>Add a New Book</h2>
+
     <form id="addBookForm">
-      <label>Code: <input type="number" id="code" required /></label
-      ><br /><br />
-      <label>Title: <input type="text" id="titre" required /></label
-      ><br /><br />
-      <label>Author: <input type="text" id="auteur" required /></label
-      ><br /><br />
-      <label>Year: <input type="number" id="annee" required /></label
-      ><br /><br />
-      <label>Price: <input type="number" id="prix" required /></label
-      ><br /><br />
+      <label>Code: <input type="number" id="code" required /></label>
+      <label>Title: <input type="text" id="titre" required /></label>
+      <label>Author: <input type="text" id="auteur" required /></label>
+      <label>Year: <input type="number" id="annee" required /></label>
+      <label>Price: <input type="number" id="prix" required /></label>
       <label>
         Available:
         <select id="disponible">
@@ -25,7 +90,7 @@
           <option value="false">No</option>
         </select>
       </label>
-      <br /><br />
+
       <button type="submit">Add Book</button>
     </form>
 
